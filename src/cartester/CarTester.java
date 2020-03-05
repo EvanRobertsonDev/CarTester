@@ -18,27 +18,61 @@ public class CarTester {
      */
     public static void main(String[] args) {
         Car car1;
-        Car car2;
-        Car car3;
         Scanner input = new Scanner(System.in);
         String brand;
         String modelOfCar;
         int yearOfMake;
         double money;
-        boolean SunRoof;
-        boolean hotTub;
-        System.out.println("Type skip at any moment to skip question");
+        String SunRoofStr = "";
+        String hotTubStr = "";
+        boolean SunRoof = false;
+        boolean hotTub = false;
+        System.out.println("Type random here to generate a random car");
         System.out.println("What is brand of car comrade?");
         brand = input.nextLine();
-        System.out.println("What is model of car comrade?");
-        modelOfCar = input.nextLine();
-        System.out.println("What is year car made in Comrade?");
-        yearOfMake = Integer.parseInt(input.nextLine());
-        System.out.println("What is price of car comrade?");
-        money = Double.parseDouble(input.nextLine());
-        System.out.println("");
+        if (brand.equalsIgnoreCase("random")) {
+            car1 = new Car();
+        }
+        else {
+            System.out.println("What is model of car comrade?");
+            modelOfCar = input.nextLine();
+            System.out.println("What is year car made in Comrade?");
+            yearOfMake = Integer.parseInt(input.nextLine());
+            System.out.println("What is price of car comrade?");
+            money = Double.parseDouble(input.nextLine());
+            System.out.println("Does vehicle have a roof for sun comrade? (true or false)");
+            SunRoofStr  = input.nextLine();
+            System.out.println("Type WE HOT here to generate the hottub mobile");
+            System.out.println("Does vehicle have a a built in tub of heat comrade? (true or false)");
+            hotTubStr = input.nextLine();
+            if (hotTubStr.equalsIgnoreCase("WE HOT")){
+            car1 = new Car(hotTub);
+            }
+            else {
+                if (SunRoofStr.equalsIgnoreCase("true")) {
+                    SunRoof = true;
+                }
+                else {
+                    SunRoof = false;
+                }
+                if (hotTubStr.equalsIgnoreCase("true")) {
+                    hotTub = true;
+                }
+                else {
+                    hotTub = false;
+                }
+                car1 = new Car(brand, modelOfCar, yearOfMake, money, SunRoof, hotTub);
+            }
+        }
         
-        car1 = new Car();
+        
+        
+        
+        System.out.println(car1);
+        
     }
     
 }
+            
+  
+  

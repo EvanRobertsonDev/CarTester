@@ -33,39 +33,40 @@ public class Car {
         int randModel = (int) (Math.random() * 3 + 1);
         if(randType == 1){
             if (randModel == 1) {
-                make = "Granta Sedan";
+                model = "Granta Sedan";
             }
             else if (randModel == 2) {
-                make = "Granta Liftback";
+                model = "Granta Liftback";
             }
             else {
-                make = "Granta Cross";
+                model = "Granta Cross";
             }
         }
         else if (randType == 2) {
             if (randModel == 1) {
-                make = "Volvo XC90";
+                model = "Volvo XC90";
             }
             else if (randModel == 2) {
-                make = "Volvo XC60";
+                model = "Volvo XC60";
             }
             else {
-                make = "Volvo XC40";
+                model = "Volvo XC40";
             }
         }else {
             if (randModel == 1) {
-                make = "Fiat 500L";
+                model = "Fiat 500L";
             }
             else if (randModel == 2) {
-                make = "Fiat 500X";
+                model = "Fiat 500X";
             }
             else {
-                make = "Fiat 500 Cabrino";
+                model = "Fiat 500 Cabrino";
             }
         }
-        int randYear = (int) (Math.random() * 2020 + 1900);
+        int randYear = (int) (Math.random() * 2020) + 1900;
         year = randYear;
         double randPrice = (double) (Math.random() * 1000000 + 5000);
+        randPrice = Math.round(randPrice);
         price = randPrice;
         hasSunroof = false;
         hasHotTub = true;
@@ -85,6 +86,15 @@ public class Car {
         price = 0.003;
         hasSunroof = true;
         hasHotTub = true;
+    }
+    public String toString() {
+        String output = "Make: " + make + "\n"
+                + "Model: " + model + "\n"
+                + "Year: " + year + "\n"
+                + "Price: " + price + "\n"
+                + "Sunroof? " + hasSunroof + "\n"
+                + "Hottub? " + hasHotTub;
+        return output;
     }
     
 }
